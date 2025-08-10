@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Anvi - Interactive Birthday Greeting Card</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="watermark">pinakk.io</div>
+    
+    <div class="container">
+        <!-- Sequence 1: Hello Kitty Birthday Avatar -->
+        <div class="avatar-section" id="sequence1">
+            <div class="avatar">
+                <div class="avatar-character"></div>
+                <div class="avatar-heart"></div>
+            </div>
+            <div class="typing-text">
+                Happy Birthday Anvi<span class="cursor"></span>
+            </div>
+            <div class="birthday-message">
+                <h2>🎂 Happy Birthday Anvi! 🎂</h2>
+                <p>Wishing you a wonderful day filled with joy and love!</p>
+            </div>
+            <button class="next-page-btn" onclick="showSequence(2)">Next Page →</button>
+        </div>
+
+        <!-- Sequence 2: Greeting Card -->
+        <div class="greeting-card" id="sequence2">
+            <div class="card">
+                <div class="card-front">
+                    <h2>🎉 Special Day Anvi! 🎉</h2>
+                    <p>Click to open your surprise!</p>
+                </div>
+                <div class="card-inside">
+                    <h3>🎂 Happy Birthday Anvi! 🎂</h3>
+                    <p>Dear Anvi, may your day be filled with joy, laughter, and wonderful memories! You deserve all the happiness in the world!</p>
+                    <div class="hearts">
+                        <span>❤️</span>
+                        <span>💖</span>
+                        <span>💝</span>
+                    </div>
+                </div>
+            </div>
+            <button class="next-page-btn" onclick="showSequence(3)">Next Page →</button>
+        </div>
+
+        <!-- Sequence 3: Dark Room -->
+        <div class="dark-room" id="sequence3">
+            <h2>🌙 Dark Room</h2>
+            <p>It's very dark in here, Anvi...</p>
+            <button class="light-button" onclick="lightUpRoom()">💡 Turn On Light</button>
+            <button class="next-page-btn" onclick="showSequence(4)">Next Page →</button>
+        </div>
+
+        <!-- Sequence 4: Lit Room -->
+        <div class="lit-room" id="sequence4">
+            <h2>✨ Lit Room</h2>
+            <p>Now it's bright and cozy, Anvi!</p>
+            <div class="cord"></div>
+            <div class="hanging-lightbulb">
+                <div class="filament"></div>
+            </div>
+            <button class="next-page-btn" onclick="showSequence(5)">Next Page →</button>
+        </div>
+
+        <!-- Sequence 5: Cake Cutting -->
+        <div class="cake-section" id="sequence5">
+            <h2>🎂 Birthday Cake for Anvi</h2>
+            <div class="cake">
+                <div class="cake-layer"></div>
+                <div class="cake-layer"></div>
+                <div class="cake-layer"></div>
+                <div class="candle"></div>
+            </div>
+            <button class="cut-button" onclick="cutCake()">🔪 Cut Cake</button>
+            <div class="balloons-container"></div>
+            <button class="next-page-btn" onclick="showCelebrationPage()">🎉 Celebrate! →</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>              

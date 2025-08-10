@@ -1,0 +1,734 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #000000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+}
+
+/* Sequence 1: Hello Kitty Birthday Avatar */
+.avatar-section {
+    background: #111111;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+    display: block;
+    animation: zoomIn 0.8s ease-out;
+    border: 2px solid #333;
+}
+
+@keyframes zoomIn {
+    from { 
+        transform: scale(0.5); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    position: relative;
+    border: 3px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: avatarFloat 3s ease-in-out infinite;
+}
+
+@keyframes avatarFloat {
+    0%, 100% { 
+        transform: translateY(0px); 
+    }
+    50% { 
+        transform: translateY(-10px); 
+    }
+}
+
+.avatar-character {
+    width: 80px;
+    height: 100px;
+    background: #ffb3d9;
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid #333;
+}
+
+.avatar-heart {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background: #ff69b4;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+.typing-text {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    animation: typewriter 2s steps(12) 0.5s both;
+}
+
+@keyframes typewriter {
+    from { 
+        width: 0; 
+    }
+    to { 
+        width: 100%; 
+    }
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 32px;
+    background: #ffffff;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { 
+        opacity: 1; 
+    }
+    51%, 100% { 
+        opacity: 0; 
+    }
+}
+
+.birthday-message {
+    margin-top: 20px;
+    animation: fadeInUp 1s ease-out 1.5s both;
+}
+
+.birthday-message h2 {
+    color: #ff69b4;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.birthday-message p {
+    color: #ffffff;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+@keyframes fadeInUp {
+    from { 
+        transform: translateY(30px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+/* Sequence 2: Greeting Card */
+.greeting-card {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    display: none;
+    text-align: center;
+    animation: slideInFromTop 1s ease-out;
+    border: 2px solid #333;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-front h2 {
+    color: #ff6b6b;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.card-front p {
+    color: #666;
+    font-size: 16px;
+}
+
+.card-inside {
+    display: none;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #ff6b6b;
+}
+
+.card-inside h3 {
+    color: #ff6b6b;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.card-inside p {
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.card-inside .hearts {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 24px;
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+.card.clicked .card-inside {
+    display: block;
+}
+
+.card.clicked .card-front p {
+    display: none;
+}
+
+/* Sequence 3: Dark Room */
+.dark-room {
+    background: #000000;
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    display: none;
+    animation: fadeIn 0.8s ease-out;
+    border: 2px solid #333;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+    }
+    to { 
+        opacity: 1; 
+    }
+}
+
+.light-button {
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    border: none;
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0 auto 20px;
+    transition: all 0.3s;
+    animation: buttonGlow 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); 
+    }
+    50% { 
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); 
+    }
+}
+
+.light-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
+}
+
+.lightbulb-icon {
+    font-size: 28px;
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    from { 
+        transform: rotate(0deg); 
+    }
+    to { 
+        transform: rotate(360deg); 
+    }
+}
+
+.instruction {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 18px;
+    animation: slideInFromLeft 1s ease-out 0.5s both;
+}
+
+@keyframes slideInFromLeft {
+    from { 
+        transform: translateX(-50px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateX(0); 
+        opacity: 1; 
+    }
+}
+
+.hand-emoji {
+    font-size: 40px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { 
+        transform: translateY(0); 
+    }
+    40% { 
+        transform: translateY(-10px); 
+    }
+    60% { 
+        transform: translateY(-5px); 
+    }
+}
+
+/* Sequence 4: Lit Room - Keep Light Theme */
+.lit-room {
+    background: linear-gradient(135deg, #f5f5dc, #f0e68c, #fffacd, #faf0e6);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    display: none;
+    position: relative;
+    animation: lightUp 1s ease-out forwards;
+    border: 2px solid #333;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 237, 78, 0.6);
+}
+
+@keyframes lightUp {
+    from { 
+        background: #000000; 
+        box-shadow: none;
+    }
+    to { 
+        background: linear-gradient(135deg, #f5f5dc, #f0e68c, #fffacd, #faf0e6);
+        box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 237, 78, 0.6);
+    }
+}
+
+.hanging-lightbulb {
+    width: 80px;
+    height: 120px;
+    background: #f0f0f0;
+    border-radius: 40px 40px 20px 20px;
+    margin: 0 auto 30px;
+    position: relative;
+    box-shadow: 0 0 30px #ffd700, 0 0 50px #ffed4e, 0 0 70px #fffacd;
+    animation: bulbGlow 2s ease-in-out infinite;
+}
+
+@keyframes bulbGlow {
+    0%, 100% { 
+        box-shadow: 0 0 30px #ffd700, 0 0 50px #ffed4e, 0 0 70px #fffacd; 
+    }
+    50% { 
+        box-shadow: 0 0 50px #ffd700, 0 0 70px #ffed4e, 0 0 90px #fffacd, 0 0 110px #fff8dc; 
+    }
+}
+
+.cord {
+    width: 4px;
+    height: 60px;
+    background: #808080;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cord::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -8px;
+    width: 20px;
+    height: 20px;
+    background: #a0a0a0;
+    border-radius: 50%;
+}
+
+.filament {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 40px;
+    border: 3px solid #333;
+    border-radius: 20px;
+    animation: filamentFlicker 0.5s ease-in-out infinite;
+}
+
+@keyframes filamentFlicker {
+    0%, 100% { 
+        opacity: 1; 
+    }
+    50% { 
+        opacity: 0.7; 
+    }
+}
+
+.filament::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 3px;
+    background: #333;
+}
+
+/* Add full room illumination effect */
+.lit-room::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 0%, rgba(255, 215, 0, 0.1) 50%, transparent 100%);
+    border-radius: 20px;
+    pointer-events: none;
+    animation: roomGlow 3s ease-in-out infinite;
+}
+
+@keyframes roomGlow {
+    0%, 100% { 
+        opacity: 0.8; 
+    }
+    50% { 
+        opacity: 1; 
+    }
+}
+
+/* Next Page Button Styles */
+.next-page-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    animation: buttonGlow 2s ease-in-out infinite;
+}
+
+.next-page-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+
+@keyframes buttonGlow {
+    0%, 100% { 
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4); 
+    }
+    50% { 
+        box-shadow: 0 4px 20px rgba(255, 107, 107, 0.7), 0 0 30px rgba(255, 107, 107, 0.3); 
+    }
+}
+
+/* Sequence 5: Cake Cutting */
+.cake-section {
+    background: #111111;
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    display: none;
+    text-align: center;
+    animation: slideInFromTop 1s ease-out;
+    border: 2px solid #333;
+}
+
+.cake {
+    position: relative;
+    margin: 30px auto;
+    width: 200px;
+    height: 120px;
+}
+
+.cake-layer {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border-radius: 20px;
+    border: 2px solid #333;
+}
+
+.cake-layer:nth-child(1) {
+    bottom: 0;
+    width: 200px;
+}
+
+.cake-layer:nth-child(2) {
+    bottom: 40px;
+    width: 180px;
+    left: 10px;
+}
+
+.cake-layer:nth-child(3) {
+    bottom: 80px;
+    width: 160px;
+    left: 20px;
+}
+
+.candle {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 30px;
+    background: linear-gradient(to bottom, #ffd700, #ffed4e);
+    border-radius: 4px;
+    animation: candleFlicker 1s ease-in-out infinite;
+}
+
+@keyframes candleFlicker {
+    0%, 100% { 
+        box-shadow: 0 0 10px #ffd700; 
+    }
+    50% { 
+        box-shadow: 0 0 20px #ffd700, 0 0 30px #ffed4e; 
+    }
+}
+
+.cut-button {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
+}
+
+.cut-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.6);
+}
+
+.balloons-container {
+    position: relative;
+    height: 200px;
+    margin: 20px 0;
+}
+
+.balloon {
+    position: absolute;
+    width: 40px;
+    height: 50px;
+    border-radius: 50%;
+    bottom: 0;
+    animation: balloonFloat 3s ease-in-out infinite;
+}
+
+@keyframes balloonFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-20px) rotate(5deg); 
+    }
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    animation: confettiFall 4s linear forwards;
+    z-index: 1000;
+}
+
+@keyframes confettiFall {
+    to { 
+        transform: translateY(100vh) rotate(360deg); 
+    }
+}
+
+/* Watermark */
+.watermark {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: #666;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* Enter Key Message */
+.enter-message {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.9);
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border: 2px solid #333;
+}
+
+.enter-message.show {
+    opacity: 1;
+}
+
+/* Celebration Page */
+.celebration-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff69b4, #87ceeb, #98fb98, #dda0dd);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: celebrationEntrance 1s ease-out;
+}
+
+@keyframes celebrationEntrance {
+    from { 
+        transform: scale(0); 
+        opacity: 0; 
+    }
+    to { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+.celebration-content {
+    text-align: center;
+    color: white;
+    animation: celebrationFloat 2s ease-in-out infinite;
+}
+
+@keyframes celebrationFloat {
+    0%, 100% { 
+        transform: translateY(0px); 
+    }
+    50% { 
+        transform: translateY(-20px); 
+    }
+}
+
+.celebration-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.celebration-subtitle {
+    font-size: 24px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.back-button {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.05);
+}
+
+/* Particle animations */
+@keyframes particleFloat {
+    from { 
+        transform: translateY(0) rotate(0deg); 
+        opacity: 1; 
+    }
+    to { 
+        transform: translateY(-100vh) rotate(360deg); 
+        opacity: 0; 
+    }
+} 
+
+/* Keyframe Animations */
+@keyframes slideInFromTop {
+    from { 
+        transform: translateY(-100px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+@keyframes heartBeat {
+    0%, 100% { 
+        transform: scale(1); 
+    }
+    50% { 
+        transform: scale(1.2); 
+    }
+}
+
+@keyframes buttonGlow {
+    0%, 100% { 
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4); 
+    }
+    50% { 
+        box-shadow: 0 4px 20px rgba(255, 107, 107, 0.7), 0 0 30px rgba(255, 107, 107, 0.3); 
+    }
+} 
